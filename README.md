@@ -1,25 +1,23 @@
-Slack Invite Automation
-------------
+ReUser Slack Onboarding Bot
+-----
 
-A tiny web application to invite a user into your slack team.
+Deployed to: <http://reuser-onboarder-bot.herokuapp.com>
 
-Inspired by
-[How I hacked Slack into a community platform with Typeform](https://levels.io/slack-typeform-auto-invite-sign-ups/)
-and
-[Socket.io's slack page](http://socket.io/slack/).
+___
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Forked and Modified from [outsideris](https://github.com/outsideris/)' [Slack Invite Automation](https://github.com/outsideris/slack-invite-automation "github/outsideris/slack-invite-automation")
+
+___
+
 
 ## Setting
-fill out `config.js` as your infomation.
+In `config.js`
 
-* `community`: your community or team name to display on join page.
-* `slackUrl` : your slack team url (ex: socketio.slack.com)
 * `slacktoken` : access token of slack.
   You can generate it in <https://api.slack.com/web#auth>.
   **You should generate the token in admin user, not owner.**
   If you generate the token in owner user, `missing_scope` error will be occurred.
-* `inviteToken`: an optional security measure - if it is set, then that token will be required to get invited.
+* `inviteToken`: an optional security measure - if it is set, then this token will be required to get invited.
 * `locale`: application language (currently `en`, `de`, `es`, `fr`, `pt`, `zh-CN`, `zh-TW`, `ja` and `ko` available).
 
   You can test your token via curl:
@@ -33,24 +31,23 @@ fill out `config.js` as your infomation.
 ## Run
 [Node.js](http://nodejs.org/) is required.
 
-```shell
-$ git clone git@github.com:outsideris/slack-invite-automation.git
+```command-line
 $ cd slack-invite-automation
 $ npm install
 $ bin/www
 ```
 
-You can access <http://localhost:3000> on your web browser.
 
-![](https://raw.github.com/outsideris/slack-invite-automation/master/screenshots/join-page.jpg)
+
 
 ## Run with Docker
 
 It's easy to run this service if you have installed Docker on your system.
 
-```shell
+```command-line
 $ git clone git@github.com:outsideris/slack-invite-automation.git
 $ cd slack-invite-automation
 $ docker build -t slack-invite-automation .
 $ docker run -it --rm -e COMMUNITY_NAME="YOUR-TEAM-NAME" -e SLACK_URL="YOUR-TEAM.slack.com" -e SLACK_TOKEN="YOUR-ACCESS-TOKEN" -p 3000:3000 slack-invite-automation
 ```
+From here you can access <http://localhost:3000> on your web browser.
